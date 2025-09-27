@@ -26,7 +26,6 @@ import pathlib
 import tarfile
 from pathlib import Path
 from urllib import request
-from os import environ
 
 from appimagebuilder.modules.setup import apprun_utils
 
@@ -91,8 +90,8 @@ class AppRunBinariesResolver:
 
     def _download_release_asset(self, asset, path):
         path.parent.mkdir(parents=True, exist_ok=True)
-        url = "https://github.com/%s/AppRun/releases/download/%s/%s" % (
-            environ.get("APPIMAGE_BUILDER_REMOTE_REPO_OWNER", "AppImageCrafters"),
+
+        url = "https://github.com/AppImageCrafters/AppRun/releases/download/%s/%s" % (
             self.apprun_version,
             asset,
         )
